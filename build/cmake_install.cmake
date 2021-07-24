@@ -1,4 +1,4 @@
-# Install script for directory: /home/rajas/llvm-pass-skeleton
+# Install script for directory: /home/rajas/Documents/GitHub/2021summerllvm
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/rajas/llvm-pass-skeleton/build/skeleton/cmake_install.cmake")
+  include("/home/rajas/Documents/GitHub/2021summerllvm/build/skeleton/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/rajas/llvm-pass-skeleton/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/rajas/Documents/GitHub/2021summerllvm/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

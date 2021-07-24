@@ -60,10 +60,7 @@ namespace
 
     virtual bool runOnModule(Module &M)
     {
-      std::ofstream myfile{"output1.txt", std::ofstream::out};
       std::error_code ec = std::make_error_code(std::io_errc::stream);
-      raw_fd_ostream S(StringRef("output1.txt"), ec);
-
       std::ofstream myfile1{"output.json", std::ofstream::out};
 
       raw_fd_ostream T(StringRef("output.json"), ec);
@@ -93,10 +90,10 @@ namespace
         {
           T << "\"" << i << "\",";
         }
-        T << "]},";
+        T << "]},\n";
         for (auto &arg : F.args())
         {
-          errs() << arg;
+          //errs() << arg;
           argumentList.push_back(&arg);
         }
         T << "\t\t\"argumentList\":{[\n";
@@ -107,6 +104,8 @@ namespace
         T << "]},";
       }
       T << "} \n";
+      T.close();
+      errs() << "Ouptut saved to output.json" << "!\n";
       return false;
     }
   };

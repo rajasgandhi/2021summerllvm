@@ -1,4 +1,4 @@
-# Install script for directory: /home/rajas/llvm-pass-skeleton/skeleton
+# Install script for directory: /home/rajas/Documents/GitHub/2021summerllvm/skeleton
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

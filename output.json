@@ -12,13 +12,15 @@ define dso_local void @hi(i32 %0) #0 {
 }
 "},
 		"functionlist":{[
-"printf","printf",]},		"argumentList":{[
+"printf","printf",]},
+		"argumentList":{[
 "i32 %0",]},	"printf":{
 		"number_of_callers":3,
 	"body":"declare dso_local i32 @printf(i8*, ...) #1
 "},
 		"functionlist":{[
-]},		"argumentList":{[
+]},
+		"argumentList":{[
 "i8* %0",]},	"main":{
 		"number_of_callers":0,
 	"body":"; Function Attrs: noinline nounwind uwtable
@@ -31,5 +33,6 @@ define dso_local i32 @main() #0 {
 }
 "},
 		"functionlist":{[
-"printf","hi",]},		"argumentList":{[
+"printf","hi",]},
+		"argumentList":{[
 ]},} 

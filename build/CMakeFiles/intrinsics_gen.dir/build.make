@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rajas/llvm-pass-skeleton
+CMAKE_SOURCE_DIR = /home/rajas/Documents/GitHub/2021summerllvm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rajas/llvm-pass-skeleton/build
+CMAKE_BINARY_DIR = /home/rajas/Documents/GitHub/2021summerllvm/build
 
 # Utility rule file for intrinsics_gen.
 
@@ -78,6 +78,6 @@ CMakeFiles/intrinsics_gen.dir/clean:
 .PHONY : CMakeFiles/intrinsics_gen.dir/clean
 
 CMakeFiles/intrinsics_gen.dir/depend:
-	cd /home/rajas/llvm-pass-skeleton/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rajas/llvm-pass-skeleton /home/rajas/llvm-pass-skeleton /home/rajas/llvm-pass-skeleton/build /home/rajas/llvm-pass-skeleton/build /home/rajas/llvm-pass-skeleton/build/CMakeFiles/intrinsics_gen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/rajas/Documents/GitHub/2021summerllvm/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rajas/Documents/GitHub/2021summerllvm /home/rajas/Documents/GitHub/2021summerllvm /home/rajas/Documents/GitHub/2021summerllvm/build /home/rajas/Documents/GitHub/2021summerllvm/build /home/rajas/Documents/GitHub/2021summerllvm/build/CMakeFiles/intrinsics_gen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/intrinsics_gen.dir/depend
 
