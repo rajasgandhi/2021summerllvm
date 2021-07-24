@@ -3,7 +3,7 @@
 void hi(int g) {
 	printf("%d",g);
    if(2 > 1) {
-      printf("hi you are not very cool");
+      printf("hi you are very cool");
    }
 }
 
