@@ -69,9 +69,10 @@ namespace
       errs() << "In a Module called " << M.getName() << "!\n";
       for (auto &F : M)
       {
-        T << "\t\"" << F.getName() << "\":{\n\t\t\"number_of_callers\":" << F.getNumUses() << ",\n\t\"body\":\"" << F << "\"},\n";
-        vector<string> functionlist;
-        vector<Argument*> argumentList;
+        T << "\t\"" << F.getName() << "\":{\n\t\t\"number_of_callers\":" << F.getNumUses() << ",\n";
+        //T << "\t\"body\":\"" << F << "\",\n";
+        vector<string> callsFunctions;
+        vector<Argument *> argumentList;
         for (auto &B : F)
         {
           for (auto &I : B)
@@ -81,31 +82,54 @@ namespace
               Function *calledFunction = callInst->getCalledFunction();
               StringRef cfName = calledFunction->getName();
               //errs() << cfName;
-              functionlist.push_back(cfName.str());
+              callsFunctions.push_back(cfName.str());
             }
           }
         }
-        T << "\t\t\"functionlist\":{[\n";
-        for (string i : functionlist)
+        T << "\t\t\"callsFunctions\":[";
+        for (int i = 0; i < callsFunctions.size(); i++)
+        {
+          if (i != callsFunctions.size() - 1)
+          {
+            T << "\"" << callsFunctions[i] << "\",";
+          }
+          else
+          {
+            T << "\"" << callsFunctions[i] << "\"";
+          }
+        }
+        /*for (string i : callsFunctions)
         {
           T << "\"" << i << "\",";
-        }
-        T << "]},\n";
+        }*/
+        T << "],\n";
         for (auto &arg : F.args())
         {
           //errs() << arg;
           argumentList.push_back(&arg);
         }
-        T << "\t\t\"argumentList\":{[\n";
-        for (Argument* i : argumentList)
+        T << "\t\t\"argumentList\":[";
+        for (int i = 0; i < argumentList.size(); i++)
+        {
+          if (i != argumentList.size() - 1)
+          {
+            T << "\"" << *argumentList[i] << "\",";
+          }
+          else
+          {
+            T << "\"" << *argumentList[i] << "\"";
+          }
+        }
+        /*for (Argument *i : argumentList)
         {
           T << "\"" << *i << "\",";
-        }
-        T << "]},";
+        }*/
+        T << "]\n\t},\n";
       }
       T << "} \n";
       T.close();
-      errs() << "Ouptut saved to output.json" << "!\n";
+      errs() << "Ouptut saved to output.json"
+             << "!\n";
       return false;
     }
   };
