@@ -70,7 +70,7 @@ namespace
       for (auto &F : M)
       {
         T << "\t\"" << F.getName() << "\":{\n\t\t\"number_of_callers\":" << F.getNumUses() << ",\n";
-        //T << "\t\"body\":\"" << F << "\",\n";
+        T << "\t\"body\":\"" << F << "\",\n";
         vector<string> callsFunctions;
         vector<Argument *> argumentList;
         for (auto &B : F)
