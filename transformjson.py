@@ -1,26 +1,27 @@
-import re
-
 infile = open('output.json','r')
 outfile = open('outputtransformed.json','w')
 
-'''text = ""
-for each in infile:
-    text += each
+text = infile.read().splitlines()
 
-matches = re.finditer("\"body\"", text)
-matches_positions = [match.start() for match in matches]
-#print(matches_positions)'''
+object_string = ""
+x = 0
+while x < len(text):
+    if "function_body" not in text[x]:
+        object_string += text[x] + "\n"
+    if "function_body" in text[x]:
+        y = x
+        temparray = []
+        while "calls_functions" not in text[y]:
+            temparray.append(text[y])
+            y += 1
+            if "calls_functions" not in text[x+1]:
+                x += 1  
+        object_string += r'\n'.join([str(z) for z in temparray]) + "\n"
 
-lines = infile.readlines()
-for line in lines:
-    if(line.startswith("\t\"body")):
-        print(True)
+    x += 1
 
-#newcontents = text.replace(text[-6:], "}\n}")
-#outfile.write(newcontents)
+object_string = object_string.replace(object_string[-6:], "}\n}")
+outfile.write(object_string)
 
 infile.close()
 outfile.close()
-'''with open('output.json') as f:
-    data = json.load(f)
-print(data)'''

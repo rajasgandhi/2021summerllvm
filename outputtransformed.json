@@ -1,0 +1,20 @@
+{ 
+	"hi":{
+		"number_of_callers":1,
+		"function_body":"; Function Attrs: noinline nounwind uwtable\ndefine dso_local void @hi(i32 %0) #0 {\n  %2 = alloca i32, align 4\n  store i32 %0, i32* %2, align 4\n  %3 = load i32, i32* %2, align 4\n  %4 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), i32 %3)\n  %5 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([25 x i8], [25 x i8]* @.str.1, i64 0, i64 0))\n  ret void\n}\n",
+		"calls_functions":["printf","printf"],
+		"argument_list":["i32 %0"]
+	},
+	"printf":{
+		"number_of_callers":3,
+		"function_body":"declare dso_local i32 @printf(i8*, ...) #1\n",
+		"calls_functions":[],
+		"argument_list":["i8* %0"]
+	},
+	"main":{
+		"number_of_callers":0,
+		"function_body":"; Function Attrs: noinline nounwind uwtable\ndefine dso_local i32 @main() #0 {\n  %1 = alloca i32, align 4\n  store i32 0, i32* %1, align 4\n  %2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([14 x i8], [14 x i8]* @.str.2, i64 0, i64 0))\n  call void @hi(i32 8)\n  ret i32 0\n}\n",
+		"calls_functions":["printf","hi"],
+		"argument_list":[]
+	}
+}

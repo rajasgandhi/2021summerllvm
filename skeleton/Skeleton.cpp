@@ -70,7 +70,7 @@ namespace
       for (auto &F : M)
       {
         T << "\t\"" << F.getName() << "\":{\n\t\t\"number_of_callers\":" << F.getNumUses() << ",\n";
-        T << "\t\"body\":\"" << F << "\",\n";
+        T << "\t\t\"function_body\":\"" << F << "\",\n";
         vector<string> callsFunctions;
         vector<Argument *> argumentList;
         for (auto &B : F)
@@ -86,7 +86,7 @@ namespace
             }
           }
         }
-        T << "\t\t\"callsFunctions\":[";
+        T << "\t\t\"calls_functions\":[";
         for (int i = 0; i < callsFunctions.size(); i++)
         {
           if (i != callsFunctions.size() - 1)
@@ -108,7 +108,7 @@ namespace
           //errs() << arg;
           argumentList.push_back(&arg);
         }
-        T << "\t\t\"argumentList\":[";
+        T << "\t\t\"argument_list\":[";
         for (int i = 0; i < argumentList.size(); i++)
         {
           if (i != argumentList.size() - 1)
