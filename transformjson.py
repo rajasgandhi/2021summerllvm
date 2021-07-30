@@ -21,7 +21,7 @@ while x < len(text):
         object_string += r'\n'.join([str(z) for z in temparray]) + "\n"
     x += 1
 
-object_string = object_string.replace(object_string[-6:], "}\n}")
+object_string = object_string.replace(object_string[-6:], "}\n]")
 outfile.write(object_string)
 
 infile.close()
@@ -33,3 +33,4 @@ outfile.close()
         #print(function)
         #for k, calls in data[function].items():
             #list1 = k
+            #print(list1)

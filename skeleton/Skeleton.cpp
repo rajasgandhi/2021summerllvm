@@ -64,13 +64,13 @@ namespace
       std::ofstream myfile1{"output.json", std::ofstream::out};
 
       raw_fd_ostream T(StringRef("output.json"), ec);
-      T << "{\n";
+      T << "[\n";
 
       errs() << "In a Module called " << M.getName() << "!\n";
       for (auto &F : M)
       {
-        T << "\t\"" << F.getName() << "\":{\n\t\t\"number_of_callers\":" << F.getNumUses() << ",\n";
-        T << "\t\t\"function_body\":\"" << F << "\",\n";
+        T << "\t{\n\t\t\"" << F.getName() << "\":{\n\t\t\t\"number_of_callers\":" << F.getNumUses() << ",\n";
+        T << "\t\t\t\"function_body\":\"" << F << "\",\n";
         vector<string> callsFunctions;
         vector<Argument *> argumentList;
         for (auto &B : F)
@@ -86,7 +86,7 @@ namespace
             }
           }
         }
-        T << "\t\t\"calls_functions\":[";
+        T << "\t\t\t\"calls_functions\":[";
         for (int i = 0; i < callsFunctions.size(); i++)
         {
           if (i != callsFunctions.size() - 1)
@@ -108,7 +108,7 @@ namespace
           //errs() << arg;
           argumentList.push_back(&arg);
         }
-        T << "\t\t\"argument_list\":[";
+        T << "\t\t\t\"argument_list\":[";
         for (int i = 0; i < argumentList.size(); i++)
         {
           if (i != argumentList.size() - 1)
@@ -124,9 +124,9 @@ namespace
         {
           T << "\"" << *i << "\",";
         }*/
-        T << "]\n\t},\n";
+        T << "]\n\t\t}\n\t},\n";
       }
-      T << "} \n";
+      T << "] \n";
       T.close();
       errs() << "Ouptut saved to output.json!\n";
       return false;
