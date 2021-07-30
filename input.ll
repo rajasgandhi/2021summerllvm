@@ -3,17 +3,21 @@ source_filename = "input.c"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@.str = private unnamed_addr constant [3 x i8] c"%d\00", align 1
-@.str.1 = private unnamed_addr constant [25 x i8] c"hi you are not very cool\00", align 1
-@.str.2 = private unnamed_addr constant [14 x i8] c"Hello, World!\00", align 1
+@.str = private unnamed_addr constant [18 x i8] c"hi you  very cool\00", align 1
+@.str.1 = private unnamed_addr constant [14 x i8] c"Hello, World!\00", align 1
+@.str.2 = private unnamed_addr constant [9 x i8] c"hisdfsdf\00", align 1
+@.str.3 = private unnamed_addr constant [11 x i8] c"sdfsdfsdf4\00", align 1
 
 ; Function Attrs: noinline nounwind uwtable
-define dso_local void @hi(i32 %0) #0 {
-  %2 = alloca i32, align 4
-  store i32 %0, i32* %2, align 4
-  %3 = load i32, i32* %2, align 4
-  %4 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), i32 %3)
-  %5 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([25 x i8], [25 x i8]* @.str.1, i64 0, i64 0))
+define dso_local void @hi(i8* %0, i8* %1) #0 {
+  %3 = alloca i8*, align 8
+  %4 = alloca i8*, align 8
+  store i8* %0, i8** %3, align 8
+  store i8* %1, i8** %4, align 8
+  %5 = load i8*, i8** %3, align 8
+  %6 = load i8*, i8** %4, align 8
+  %7 = call i32 (i8*, ...) @printf(i8* %5, i8* %6)
+  %8 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([18 x i8], [18 x i8]* @.str, i64 0, i64 0))
   ret void
 }
 
@@ -23,8 +27,8 @@ declare dso_local i32 @printf(i8*, ...) #1
 define dso_local i32 @main() #0 {
   %1 = alloca i32, align 4
   store i32 0, i32* %1, align 4
-  %2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([14 x i8], [14 x i8]* @.str.2, i64 0, i64 0))
-  call void @hi(i32 8)
+  %2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([14 x i8], [14 x i8]* @.str.1, i64 0, i64 0))
+  call void @hi(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @.str.2, i64 0, i64 0), i8* getelementptr inbounds ([11 x i8], [11 x i8]* @.str.3, i64 0, i64 0))
   ret i32 0
 }
 

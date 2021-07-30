@@ -1,3 +1,5 @@
+import json
+
 infile = open('output.json','r')
 outfile = open('outputtransformed.json','w')
 
@@ -17,7 +19,6 @@ while x < len(text):
             if "calls_functions" not in text[x+1]:
                 x += 1  
         object_string += r'\n'.join([str(z) for z in temparray]) + "\n"
-
     x += 1
 
 object_string = object_string.replace(object_string[-6:], "}\n}")
@@ -25,3 +26,10 @@ outfile.write(object_string)
 
 infile.close()
 outfile.close()
+
+#with open('outputtransformed.json') as f:
+    #data = json.load(f)
+    #for function in data:
+        #print(function)
+        #for k, calls in data[function].items():
+            #list1 = k

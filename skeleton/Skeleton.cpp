@@ -64,7 +64,7 @@ namespace
       std::ofstream myfile1{"output.json", std::ofstream::out};
 
       raw_fd_ostream T(StringRef("output.json"), ec);
-      T << "{ \n";
+      T << "{\n";
 
       errs() << "In a Module called " << M.getName() << "!\n";
       for (auto &F : M)
@@ -128,8 +128,7 @@ namespace
       }
       T << "} \n";
       T.close();
-      errs() << "Ouptut saved to output.json"
-             << "!\n";
+      errs() << "Ouptut saved to output.json!\n";
       return false;
     }
   };
