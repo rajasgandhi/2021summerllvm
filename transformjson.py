@@ -27,10 +27,15 @@ outfile.write(object_string)
 infile.close()
 outfile.close()
 
-#with open('outputtransformed.json') as f:
-    #data = json.load(f)
-    #for function in data:
-        #print(function)
-        #for k, calls in data[function].items():
-            #list1 = k
-            #print(list1)
+f = open('outputtransformed.json')
+data = json.load(f)
+f.close()
+
+for function in data:
+    for fName, fInfo in function.items():
+        updateList = list(set(fInfo["calls_functions"]))
+        fInfo["calls_functions"] = updateList
+
+f = open('outputtransformed.json', 'w+')
+f.write(json.dumps(data, indent=4))
+f.close()
