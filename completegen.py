@@ -5,7 +5,6 @@ import sys
 compileCFile = "clang -Xclang -disable-O0-optnone -S -emit-llvm " + sys.argv[1] + " -o input.ll"
 file = os.getcwd() + "/outputtransformed.json"
 copyJSON = "cp " + file + " " + sys.argv[2]
-#print(copyJSON)
 
 subprocess.run([compileCFile], shell=True)
 subprocess.run(["make"], cwd="build/", shell=True)
