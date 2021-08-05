@@ -25,7 +25,7 @@ define dso_local i32 @function2() #0 {
 	},
 	{
 		"function3":{
-			"number_of_callers":1,
+			"number_of_callers":2,
 			"function_body":"; Function Attrs: noinline nounwind uwtable
 define dso_local i32 @function3() #0 {
   ret i32 3
@@ -74,7 +74,7 @@ define dso_local i32 @function5() #0 {
 	},
 	{
 		"function6":{
-			"number_of_callers":1,
+			"number_of_callers":2,
 			"function_body":"; Function Attrs: noinline nounwind uwtable
 define dso_local i32 @function6() #0 {
   %1 = call i32 @function5()
@@ -83,6 +83,21 @@ define dso_local i32 @function6() #0 {
 }
 ",
 			"calls_functions":["function5"],
+			"argument_list":[]
+		}
+	},
+	{
+		"function8":{
+			"number_of_callers":1,
+			"function_body":"; Function Attrs: noinline nounwind uwtable
+define dso_local i32 @function8() #0 {
+  %1 = call i32 @function3()
+  %2 = call i32 @function6()
+  %3 = add nsw i32 %1, %2
+  ret i32 %3
+}
+",
+			"calls_functions":["function3","function6"],
 			"argument_list":[]
 		}
 	},
@@ -118,16 +133,20 @@ define dso_local i32 @main() #0 {
   %24 = sext i32 %23 to i64
   %25 = inttoptr i64 %24 to i8*
   %26 = call i32 (i8*, ...) @printf(i8* %25)
+  %27 = call i32 @function8()
+  %28 = sext i32 %27 to i64
+  %29 = inttoptr i64 %28 to i8*
+  %30 = call i32 (i8*, ...) @printf(i8* %29)
   ret i32 0
 }
 ",
-			"calls_functions":["printf","function1","printf","function2","printf","function3","printf","function4","printf","function5","printf","function6","printf"],
+			"calls_functions":["printf","function1","printf","function2","printf","function3","printf","function4","printf","function5","printf","function6","printf","function8","printf"],
 			"argument_list":[]
 		}
 	},
 	{
 		"printf":{
-			"number_of_callers":7,
+			"number_of_callers":8,
 			"function_body":"declare dso_local i32 @printf(i8*, ...) #1
 ",
 			"calls_functions":[],

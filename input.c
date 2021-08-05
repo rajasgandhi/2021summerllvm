@@ -1,20 +1,3 @@
-/*#include <stdio.h>
-#include <string.h>
-
-void hi(char thing[], char thing1[]) {
-	printf(thing, thing1);
-   if(2 > 1) {
-      printf("hi you  very cool");
-   }
-}
-
-int main() {
-   // printf() displays the string inside quotation
-   printf("Hello, World!");
-   hi("hisdfsdf", "sdfsdfsdf4");
-   return 0;
-}*/
-
 #include <stdio.h>
 #include <string.h>
 
@@ -46,6 +29,10 @@ int function6() {
     return function5() + 2;
 }
 
+int function8() {
+    return function3() + function6();
+}
+
 int main() {
     printf("Hello World");
     printf(function1());
@@ -54,6 +41,7 @@ int main() {
     printf(function4());
     printf(function5());
     printf(function6());
+    printf(function8());
     return 0;
 }
 

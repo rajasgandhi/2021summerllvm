@@ -44,6 +44,14 @@ define dso_local i32 @function6() #0 {
 }
 
 ; Function Attrs: noinline nounwind uwtable
+define dso_local i32 @function8() #0 {
+  %1 = call i32 @function3()
+  %2 = call i32 @function6()
+  %3 = add nsw i32 %1, %2
+  ret i32 %3
+}
+
+; Function Attrs: noinline nounwind uwtable
 define dso_local i32 @main() #0 {
   %1 = alloca i32, align 4
   store i32 0, i32* %1, align 4
@@ -72,6 +80,10 @@ define dso_local i32 @main() #0 {
   %24 = sext i32 %23 to i64
   %25 = inttoptr i64 %24 to i8*
   %26 = call i32 (i8*, ...) @printf(i8* %25)
+  %27 = call i32 @function8()
+  %28 = sext i32 %27 to i64
+  %29 = inttoptr i64 %28 to i8*
+  %30 = call i32 (i8*, ...) @printf(i8* %29)
   ret i32 0
 }
 

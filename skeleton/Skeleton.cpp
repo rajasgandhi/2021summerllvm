@@ -32,12 +32,10 @@ namespace
       std::error_code ec = std::make_error_code(std::io_errc::stream);
       raw_fd_ostream S(StringRef("output.txt"), ec);
 
-      //errs() << F.getName() << ": " << F.getInstructionCount() << "\n";
       myfile << F.getName().str() << ": " << F.getInstructionCount() << "\n";
 
       for (BasicBlock &BB : F)
       {
-        //errs() << "BB has name" << BB << "\n";
         BB.print(S);
         basicBlockCount++;
         for (Instruction &I : BB)
