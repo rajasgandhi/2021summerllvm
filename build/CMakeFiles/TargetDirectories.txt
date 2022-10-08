@@ -1,8 +1,0 @@
-/home/rajas/Documents/GitHub/2021summerllvm/build/CMakeFiles/rebuild_cache.dir
-/home/rajas/Documents/GitHub/2021summerllvm/build/CMakeFiles/acc_gen.dir
-/home/rajas/Documents/GitHub/2021summerllvm/build/CMakeFiles/edit_cache.dir
-/home/rajas/Documents/GitHub/2021summerllvm/build/CMakeFiles/omp_gen.dir
-/home/rajas/Documents/GitHub/2021summerllvm/build/CMakeFiles/intrinsics_gen.dir
-/home/rajas/Documents/GitHub/2021summerllvm/build/skeleton/CMakeFiles/rebuild_cache.dir
-/home/rajas/Documents/GitHub/2021summerllvm/build/skeleton/CMakeFiles/edit_cache.dir
-/home/rajas/Documents/GitHub/2021summerllvm/build/skeleton/CMakeFiles/SkeletonPass.dir
